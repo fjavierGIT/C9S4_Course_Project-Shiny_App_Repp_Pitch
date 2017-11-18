@@ -11,7 +11,18 @@ shinyUI(fluidPage(
   # Input: Select an input for #1 variable selected 
   sidebarLayout(
     sidebarPanel(
-        p("Swiss Fertility and Socioeconomic Indicators (1888) Data"),
+        h4("INSTRUCTIONS:"), 
+        helpText("User must select two variables.",
+                 "A scatter plot of the variables will be shown.",
+                 "There is the possibility to fit a line.",
+                 "When checked, two models are available: lm",
+                 "(Linear Model regression line) and loess ",
+                 "(loess line). Results for selected method",
+                 "are printed. Two distinct variables must be",
+                 "chosen, otherwise no output will be shown.", 
+                 "Different line colour are available."),
+        a(href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/swiss.html","More info on swiss "),
+        br(),br(),
         selectInput(inputId = "variable1", label = strong("Variable #1"),
                 choices = unique(names(swiss)),
                 selected = "Fertility"),
@@ -21,31 +32,23 @@ shinyUI(fluidPage(
                 choices = unique(names(swiss)),
                 selected = "Agriculture"),
     
-    #Input: Background colour
-    colourInput("col", "Select points colour", "red", palette = "limited", showColour = "background"),
-    
     #Input: Select if user wants fitted line
-    checkboxInput(inputId = "lines", label = strong("Overlay trend line"), value = FALSE),
+    checkboxInput(inputId = "lines", label = strong("Overlay fit line"), value = FALSE),
     
     #Input: Method
     conditionalPanel(condition = "input.lines == true",
     selectInput(inputId = "meth", label = strong("Select fit method"), 
                 choices = c("lm","loess"),
-                selected = "lm")),
-    br(),
-    helpText("INSTRUCTIONS: User must select two variables.",
-         "A scatter plot of the variables will be shown.",
-         "There is the possibility to fit a line.",
-         "When checked, two models are available: lm",
-         "(Linear Model) and loess. Results for selected",
-         "method are printed. Two distinct variables must be" ,
-         "chosen, otherwise no output will be shown.", 
-         "Different point colour can be selected.")
-    
+                selected = "lm"),
+    #Input: Line colour
+    colourInput("col", "Select line colour", "red", palette = "limited", showColour = "background")
+        )
     ),
     
     # Show a plot of the generated distribution
     mainPanel(
+        
+        h3("Swiss Fertility and Socioeconomic Indicators Data (1888) with fit line"),
         
         # htmlOutput: Formatted text for warning
         h2(htmlOutput("warning", container = span)),

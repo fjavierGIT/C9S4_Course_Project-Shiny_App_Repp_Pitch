@@ -36,14 +36,14 @@ shinyServer(function(input, output) {
     
     # draw the plot
     plot(x=x, y=y,
-         xlab = var1, ylab = var2, col = col, col.axis = col,type="p")
+         xlab = var1, ylab = var2, col = "darkblue", type="p")
 
     # Display lines only if lines checkbox is checked
     if(input$lines){
         if(identical(meth,'lm')){
-            abline(lm(y ~ x), col = "darkblue", lwd = 3)
+            abline(lm(y ~ x), col = col, lwd = 3)
         } else {
-            lines(lowess(y ~ x), col = "darkblue", lwd = 3)}
+            lines(lowess(y ~ x), col = col, lwd = 3)}
         }
 })
 })

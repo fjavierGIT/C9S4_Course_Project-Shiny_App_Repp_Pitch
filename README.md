@@ -64,7 +64,6 @@ You can also publish using both formats to github manually using gh-pages, thoug
 - Was the presentation completed in slidify or R Presenter?
 - Was it 5 pages?
 - Did it contain an R expression that got evaluated and displayed?
-- Did it contain an R expression that got evaluated and displayed?
 - Was it hosted on github or Rpubs?
 - Was the server calculation displayed in the html page?
 - Here's your opportunity to give this presentation a +1 for being well done. Did they tinker around with the default style? Was the presentation particularly lucid and well organized? In other words, the student made a legitimate try.
