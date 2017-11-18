@@ -6,22 +6,24 @@ data("swiss")
 # Define UI for application that draws a scatterplot
 shinyUI(fluidPage(
   # Application title
-  titlePanel("SWISS DATA"),
+    
+  titlePanel(title=div(img(src="32px-Flag_of_Switzerland.svg.png"), strong("SWISS DATA"))),
   
   # Input: Select an input for #1 variable selected 
   sidebarLayout(
     sidebarPanel(
         h4("INSTRUCTIONS:"), 
-        helpText("User must select two variables.",
-                 "A scatter plot of the variables will be shown.",
-                 "There is the possibility to fit a line.",
-                 "When checked, two models are available: lm",
-                 "(Linear Model regression line) and loess ",
-                 "(loess line). Results for selected method",
-                 "are printed. Two distinct variables must be",
-                 "chosen, otherwise no output will be shown.", 
-                 "Different line colour are available."),
-        a(href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/swiss.html","More info on swiss "),
+        helpText("1. User must select two variables.",br(),
+                "2. A scatter plot of the variables will be shown.",br(),
+                "3. There is the possibility to fit a line.",
+                "When checked, two models are available: lm",
+                "(Linear Model regression line) and loess ",
+                "(loess line).",br(),
+                "4. Results for selected method are printed.",br(),
+                "5. Two distinct variables must be chosen,",
+                "otherwise no output will be shown.",br(), 
+                "6. Different line colours are available."),
+        a(href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/swiss.html","More info on swiss data set"),
         br(),br(),
         selectInput(inputId = "variable1", label = strong("Variable #1"),
                 choices = unique(names(swiss)),
@@ -48,16 +50,20 @@ shinyUI(fluidPage(
     # Show a plot of the generated distribution
     mainPanel(
         
-        h3("Swiss Fertility and Socioeconomic Indicators Data (1888) with fit line"),
+        h2("Swiss Fertility and Socioeconomic Indicators Data (1888) with fit line"),
         
         # htmlOutput: Formatted text for warning
-        h2(htmlOutput("warning", container = span)),
+        h3(htmlOutput("warning", container = span)),
         
         conditionalPanel(condition="input.variable1 != input.variable2",
-            plotOutput(outputId = "plot1", height = "300px"),
-            tabPanel("Model", verbatimTextOutput("model"))
-        )
-    )
-  )
+            plotOutput(outputId = "plot1"),
+            verbatimTextOutput("model")
+            ),
+        hr(),
+        #a(href="https://commons.wikimedia.org/wiki/File%3AFlag_of_Switzerland.svg","More info on swiss")
+        p(), 
+        helpText(HTML('<p>Swiss Flag By Marc Mongenet <a href="https://commons.wikimedia.org/wiki/File%3AFlag_of_Switzerland.svg"> via Wikimedia Commons</a><p>'))
+    
+))
 ))
 
