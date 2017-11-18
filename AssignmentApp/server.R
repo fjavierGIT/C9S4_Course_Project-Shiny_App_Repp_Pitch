@@ -9,10 +9,10 @@ shinyServer(function(input, output) {
     # Checks if selected variables are the same, show warning if necessary
         var1 <- input$variable1;    var2 <- input$variable2
             if(identical(var1,var2)){
-                HTML(paste("<font color=\"#FF0000\"><b>", "Selected Variables are the same!!", "</b></font>")) 
+                HTML('<p><font color=\"#FF0000\"><b>Selected Variables are the same!!</b></font></p>') 
             } else {
                 "Here you can see your model plot and summary"}
-    })
+        })
     
     output$model <- renderPrint({
         # extract var from input$variable from ui.R

@@ -42,14 +42,15 @@ shinyUI(fluidPage(
     selectInput(inputId = "meth", label = strong("Select fit method"), 
                 choices = c("lm","loess"),
                 selected = "lm"),
+    
     #Input: Line colour
     colourInput("col", "Select line colour", "red", palette = "limited", showColour = "background")
         )
     ),
     
-    # Show a plot of the generated distribution
+    # Show the generated plot for choosen variables
     mainPanel(
-        
+        # Panel Title
         h2("Swiss Fertility and Socioeconomic Indicators Data (1888) with fit line"),
         
         # htmlOutput: Formatted text for warning
@@ -60,10 +61,9 @@ shinyUI(fluidPage(
             verbatimTextOutput("model")
             ),
         hr(),
-        #a(href="https://commons.wikimedia.org/wiki/File%3AFlag_of_Switzerland.svg","More info on swiss")
         p(), 
-        helpText(HTML('<p>Swiss Flag By Marc Mongenet <a href="https://commons.wikimedia.org/wiki/File%3AFlag_of_Switzerland.svg"> via Wikimedia Commons</a><p>'))
-    
-))
+        helpText(HTML('<p>Swiss Flag By Marc Mongenet <a href="https://commons.wikimedia.org/wiki/File%3AFlag_of_Switzerland.svg"> via Wikimedia Commons</a></p>'))
+    )
+    )
 ))
 
