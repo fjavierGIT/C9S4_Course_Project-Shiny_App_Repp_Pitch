@@ -13,7 +13,8 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
         h4("INSTRUCTIONS:"), 
-        helpText("1. User must select two variables.",br(),
+        helpText("The app takes advantage of the swiss data set.",br(),
+            "1. User must select two variables.",br(),
                 "2. A scatter plot of the variables will be shown.",br(),
                 "3. There is the possibility to fit a line.",
                 "When checked, two models are available: lm",
