@@ -1,4 +1,10 @@
-# Course Project: Shiny Application and Reproducible Pitch
+# Course Project: Shiny Application and Reproducible Pitch. Course project for Developing Data Products Coursera course.
+
+
+**NOTE FOR GRADERS:**
+
+- [Shiny app for this project is here](https://fjavierangoy.shinyapps.io/assignmentapp)
+- [Github repository is here](https://github.com/fjavierGIT/C9S4_Course_Project-Shiny_App_Repp_Pitch)
 
 ## Instructions: 
 This peer assessed assignment has two parts. First, you will create a Shiny application and deploy it on Rstudio's servers. Second, you will use Slidify or Rstudio Presenter to prepare a reproducible pitch presentation about your application.
