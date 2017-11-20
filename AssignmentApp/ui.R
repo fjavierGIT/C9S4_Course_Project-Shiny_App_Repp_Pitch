@@ -52,7 +52,7 @@ shinyUI(fluidPage(
     # Show the generated plot for choosen variables
     mainPanel(
         # Panel Title
-        h2("Swiss Fertility and Socioeconomic Indicators Data (1888) with fit line"),
+        h2("Explore Swiss Fertility and Socioeconomic Indicators Data (1888) with fit line"),
         
         # htmlOutput: Formatted text for warning
         h3(htmlOutput("warning", container = span)),
@@ -64,7 +64,7 @@ shinyUI(fluidPage(
         hr(),
         p(), 
         helpText(HTML('<p>Swiss Flag By Marc Mongenet <a href="https://commons.wikimedia.org/wiki/File%3AFlag_of_Switzerland.svg"> via Wikimedia Commons</a></p>'))
-    )
+        )
     )
 ))
 
