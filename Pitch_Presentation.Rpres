@@ -7,7 +7,9 @@
     color: black;
     position: relative;
     top: 4%;}
-    
+.small-code pre code {
+  font-size: 1em;
+}    
 .ribbon {
   position: fixed;
   top:0%;
@@ -63,21 +65,27 @@ left: 40%
 
 EXAMPLE: Fertility vs Catholic
 ========================================================
+class: small-code
+
 <div class="ribbon">
     <img src="images/64px-Flag_of_Switzerland.svg.png"></img></div>
 
-The plot with lm line:
-```{r, echo=FALSE}
+```{r, message=FALSE, warning=FALSE, include=FALSE}
 library(datasets)
+library(highlight)
 data(swiss)
-x=swiss$Agriculture;y=swiss$Fertility
-plot(x=x, y=y, xlab = "Catholic", ylab = "Fertility", col = "darkblue", type="p")
-abline(lm(y ~ x), col = "red", lwd = 3)
 ```
+The plot with lm line:
+```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.show="hold"}
+plot(Fertility~Catholic,data=swiss, col="darkblue")
+abline(lm(Fertility~Catholic, data=swiss), col="red")
+```
+
 ***
+
 Model output is printed:
-```{r, echo=FALSE}
-lm(y ~ x)
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+lm(Fertility ~ Catholic, data = swiss)
 ```
 
 ATTRIBUTION

@@ -7,7 +7,9 @@
     color: black;
     position: relative;
     top: 4%;}
-    
+.small-code pre code {
+  font-size: 1em;
+}    
 .ribbon {
   position: fixed;
   top:0%;
@@ -63,22 +65,37 @@ left: 40%
 
 EXAMPLE: Fertility vs Catholic
 ========================================================
+class: small-code
+
 <div class="ribbon">
     <img src="images/64px-Flag_of_Switzerland.svg.png"></img></div>
 
+
 The plot with lm line:
-![plot of chunk unnamed-chunk-1](Pitch_Presentation-figure/unnamed-chunk-1-1.png)
+
+```r
+plot(Fertility~Catholic,data=swiss, col="darkblue")
+abline(lm(Fertility~Catholic, data=swiss), col="red")
+```
+
+![plot of chunk unnamed-chunk-2](Pitch_Presentation-figure/unnamed-chunk-2-1.png)
+
 ***
+
 Model output is printed:
+
+```r
+lm(Fertility ~ Catholic, data = swiss)
+```
 
 ```
 
 Call:
-lm(formula = y ~ x)
+lm(formula = Fertility ~ Catholic, data = swiss)
 
 Coefficients:
-(Intercept)            x  
-    60.3044       0.1942  
+(Intercept)     Catholic  
+    64.4283       0.1389  
 ```
 
 ATTRIBUTION
